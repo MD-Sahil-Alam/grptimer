@@ -1,0 +1,249 @@
+:root {
+    /* Vibrant color palette with bold contrasts */
+    --bg-primary: #121212;  /* Deep charcoal for a sleek background */
+    --bg-secondary: #1d1d1d;  /* Darker shade for subtle depth */
+    --text-primary: #fde4d8;  /* Light off-white for clean text */
+    --text-secondary: #b0b0b0;  /* Softer grey for secondary text */
+    --accent-primary: #ff5733;  /* Bold coral red for accent elements */
+    --accent-secondary: #f4a261;  /* Warm orange for secondary accents */
+    --highlight:  #f9e25f;;;  /* Bright blue for highlighting important elements */
+}
+
+
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 16px;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+    background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+}
+
+.container {
+    background-color: var(--bg-secondary);
+    border-radius: 16px;
+    box-shadow: 
+        0 10px 30px rgba(0, 0, 0, 0.2),
+        0 4px 15px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    width:88vw;
+    /* max-width: 70vw; */
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+h1 {
+    color:  rgb(37, 231, 37);
+    margin-bottom: 20px;
+    font-size: 2rem;
+    letter-spacing: -0.5px;
+}
+
+.timer-display {
+    font-size: 4rem;
+    font-weight: 700;
+    color: var(--highlight);
+    margin: 20px 0;
+    text-shadow: 0 0 10px rgba(20, 255, 236, 0.3);
+}
+
+.timer-controls {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+button {
+    padding: 12px 25px;
+    background-color: var(--accent-primary);
+    color: var(--text-primary);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 2.3rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    flex: 1;
+    height: 8vh;
+    width: 16vw;
+}
+
+button:hover {
+    background-color: var(--accent-secondary);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+}
+
+button:active {
+    transform: translateY(1px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.other-timers {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+}
+
+.user-timer {
+    background-color: var(--bg-primary);
+    border-radius: 10px;
+    padding: 15px;
+    text-align: center;
+    border: 1px solid var(--accent-primary);
+    transition: all 0.3s ease;
+    width: 100%;
+    max-width: 50vw;
+    opacity: 80%;
+}
+
+.user-timer-id {
+    font-size: 1.7rem;
+    color: #fde4d8;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.user-timer .timer-display {
+    font-size: 2rem;
+    color: var(--text-primary);
+}
+
+/* Modal Styles */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    padding: 15px;
+}
+
+.modal-content {
+    background-color: var(--bg-secondary);
+    border-radius: 10px;
+    padding: 30px;
+    
+    width: 100%;
+    max-width: 85vw;
+    
+    text-align: center;
+    border: 1px solid var(--accent-primary);
+}
+
+.modal-content input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    background-color: var(--bg-primary);
+    border: 1px solid var(--accent-secondary);
+    color: var(--text-primary);
+    border-radius: 6px;
+    font-size: 1rem;
+}
+
+.modal-content button {
+    width: 100%;
+}
+
+input, textarea {
+    font-size: 16px; /* Ensures mobile browsers won't zoom in on input fields */
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 480px) {
+    html {
+        font-size: 25px; /* Increase base font size */
+    }
+
+    .container {
+        padding: 25px;
+        margin: 0;
+        width: 100vw; /* Slight margin from edges */
+        border-radius: 12px;
+    }
+
+    .timer-display {
+        font-size: 3rem; /* Make timer display larger */
+        font-weight: bold;
+    }
+
+    .timer-controls {
+        flex-direction: column;
+        gap: 15px; /* More spacing */
+    }
+
+    button {
+        padding: 15px;
+        font-size: 1.2rem; /* Larger buttons for easier tapping */
+        border-radius: 8px;
+    }
+
+    .other-timers {
+        gap: 15px;
+        flex-wrap: wrap;
+    }
+
+    .user-timer {
+        padding: 15px;
+        max-width: 90vw;
+        font-size: 1.2rem; /* Increase text size */
+    }
+
+    input {
+        padding: 14px;
+        font-size: 1.2rem;
+        border-radius: 8px;
+    }
+
+}
+
+/* Hide elements */
+.hidden {
+    display: none;
+}
+
+/* Scrollbar Styling for modern browsers */
+/* ::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--accent-secondary);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--highlight);
+} */
